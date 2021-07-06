@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot name="innok_heros_full" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!--xacro:arg name="wheel_kind" default="tractor"/--> <!-- default | tractor | tractor_large -->
+    <!--xacro:arg name="front_kind" default="4wd"/--> <!-- swing_axle | caster | 4wd -->
+
+
+    <xacro:include filename="$(find innok_heros_description)/urdf/innok_heros_universal.xacro"/>
+    <xacro:include filename="$(find robot)/urdf/laser.xacro"/>
+    <xacro:include filename="$(find robot)/urdf/plow.xacro"/>
+    <xacro:include filename="$(find robot)/urdf/gps.xacro"/>
+    <xacro:include filename="$(find robot)/urdf/imu.xacro"/>
+
+    <!-- heros base-->
+    <xacro:innok_heros front_kind='$(arg front_kind)' wheel_kind='$(arg wheel_kind)'/>
+    <xacro:robot_laser x="0.82" y="0" z="0.1" laser_size="0.1"/>
+    <xacro:plow x="-1" y="0" z="0"/>
+    <xacro:robot_gps x="0" y="0" z="0.1" gps_size="0.1" />
+    <xacro:robot_imu x="0" y="0" z="0"/>
+
+
+    <update_rate>1</update_rate>
+
+
+</robot>

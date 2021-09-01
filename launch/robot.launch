@@ -1,18 +1,10 @@
 <launch>
 
-    <!--node pkg="hector_mapping" type="hector_mapping" name="hector_mapping">
-        <remap from="scan" to="robot/scan" />
-        <param name="odom_frame" value="odom" />
-        <param name="base_frame" value="base_link" />
-    </node-->
-
+    <!-- Load model in Gazebo -->
     <include file="$(find robot)/launch/gazebo.launch">
     </include>
 
-    <!-- Load robot description -->
-    <include file="$(find robot)/launch/nav2.launch" >
-    </include>
-
+    <!-- Load model in Rviz -->
     <arg name="rviz" default="false"/>
 
     <group if="$(eval arg('rviz') == true)">
@@ -20,10 +12,22 @@
         </include>
     </group>
 
-    <!--node pkg="gps_common" type="utm_odometry_node" name="utm_odometry_node">
-        <remap from="/fix" to="/dest_gps"/>
-        <remap from="/odom" to="/goal"/>
-    </node-->
+    <!-- Map -->
+    <!--include file="$(find robot)/launch/mapping.launch" >
+    </include-->
 
+    <!-- Load navigation -->
+    <include file="$(find robot)/launch/navigation.launch" >
+    </include>
+    
+    
+    <!-- From gps to odom coordinates -->
+    <node pkg="gps_common" type="utm_odometry_node" name="utm_odometry_node">
+        <remap from="/fix" to="/gps_target"/>
+        <remap from="/odom" to="/gps_odom"/>
+    </node>
 
+    <include file="$(find robot)/launch/localization.launch" >
+    </include>
+    
 </launch>

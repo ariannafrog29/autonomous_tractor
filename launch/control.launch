@@ -1,0 +1,22 @@
+
+<launch>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
+<!--  CONTROLLER  -->
+    <rosparam command="load"
+              file="$(find robot)/config/control/joints.yaml"
+              ns="joint_publisher"/>
+              
+    <rosparam command="load"
+              file="$(find robot)/config/control/heros_skid_steer.yaml"
+              ns="heros_velocity_controller"/>
+
+    <node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="heros_velocity_controller
+                                            joint_publisher"/>
+
+    <!--node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+        <param name="default_topic" value="/heros_velocity_controller/cmd_vel"/>
+    </node-->
+</launch>

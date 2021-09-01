@@ -15,6 +15,10 @@
             <color rgba="1 0.51 0 0.5"/>
         </material>
 
+       <gazebo reference="laser_link">
+          <material>Gazebo/Orange</material>
+       </gazebo>
+
         <link name="laser_link">
             <visual>
                 <geometry>
@@ -42,8 +46,8 @@
         <gazebo reference="laser_link">
             <sensor type="ray" name="head_hokuyo_sensor">
                 <pose>0 0 0 0 0 0</pose>
-                <visualize>false</visualize>
-                <update_rate>40</update_rate>
+                <visualize>true</visualize>
+                <update_rate>50</update_rate>
                 <ray>
                     <scan>
                         <horizontal>

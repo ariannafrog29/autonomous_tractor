@@ -15,6 +15,10 @@
             <color rgba="1 0 0 0.5"/>
         </material>
 
+        <gazebo reference="gps_link">
+          <material>Gazebo/Red</material>
+       </gazebo>
+
         <link name="gps_link">
             <visual>
                 <geometry>
@@ -42,10 +46,10 @@
         <gazebo>
             <plugin name="gps_controller" filename="libhector_gazebo_ros_gps.so">
                <updateRate>1000</updateRate>
-               <robotNamespace>robot</robotNamespace>
+               <robotNamespace>/</robotNamespace>
                <bodyName>gps_link</bodyName>
-               <topicName>fix</topicName>
-               <velocityTopicName>vel</velocityTopicName>
+               <topicName>robot/fix</topicName>
+               <velocityTopicName>robot/vel</velocityTopicName>
                <referenceLatitude>40.798824</referenceLatitude>
                <referenceLongitude>16.923127</referenceLongitude>
                <referenceHeading>0</referenceHeading>

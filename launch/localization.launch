@@ -1,0 +1,12 @@
+<launch>
+  <!-- Start EKF for localization -->
+  <arg name="enable_ekf" default="$(optenv ENABLE_EKF true)"/>
+
+  <group if="$(arg enable_ekf)" >
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+      <rosparam command="load" file="$(find robot)/config/localization/localization.yaml" />
+    </node>
+  </group>
+
+</launch>
+

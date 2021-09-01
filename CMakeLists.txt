@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(robot)
+project(progetto_rana)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -12,6 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  sensor_msgs
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -48,10 +50,9 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
- add_message_files(
-   FILES
-   Position.msg
- )
+# add_message_files(
+#   FILES
+# )
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -161,6 +162,8 @@ include_directories(
 ## in contrast to setup.py, you can choose the destination
 
  catkin_install_python(PROGRAMS
+   scripts/publisherGpsTarget.py
+   scripts/GoalPublisher.py
    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
  )
 

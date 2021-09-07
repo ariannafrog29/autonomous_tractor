@@ -1,23 +1,23 @@
 <launch>
 
     <!-- Load model in Gazebo -->
-    <include file="$(find robot)/launch/gazebo.launch">
+    <include file="$(find progetto_rana)/launch/gazebo.launch">
     </include>
 
     <!-- Load model in Rviz -->
     <arg name="rviz" default="false"/>
 
     <group if="$(eval arg('rviz') == true)">
-        <include file="$(find robot)/launch/rviz2.launch" >
+        <include file="$(find progetto_rana)/launch/rviz2.launch" >
         </include>
     </group>
 
     <!-- Map -->
-    <!--include file="$(find robot)/launch/mapping.launch" >
+    <!--include file="$(find progetto_rana)/launch/mapping.launch" >
     </include-->
 
     <!-- Load navigation -->
-    <include file="$(find robot)/launch/navigation.launch" >
+    <include file="$(find progetto_rana)/launch/navigation.launch" >
     </include>
     
     
@@ -27,7 +27,7 @@
         <remap from="/odom" to="/gps_odom"/>
     </node>
 
-    <include file="$(find robot)/launch/localization.launch" >
+    <include file="$(find progetto_rana)/launch/localization.launch" >
     </include>
     
 </launch>

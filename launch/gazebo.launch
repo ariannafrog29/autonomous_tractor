@@ -2,7 +2,7 @@
     <!--  Gazebo  -->
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find robot)/worlds/countryside.world"/>
+        <arg name="world_name" value="$(find progetto_rana)/worlds/countryside.world"/>
         <arg name="paused" value="false"/>
         <arg name="use_sim_time" value="true"/>
         <arg name="gui" value="true"/>
@@ -10,10 +10,10 @@
         <arg name="debug" value="false"/>
     </include>
 
-    <include file="$(find robot)/launch/description.launch">
+    <include file="$(find progetto_rana)/launch/description.launch">
     </include>
 
-    <include file="$(find robot)/launch/control.launch">
+    <include file="$(find progetto_rana)/launch/control.launch">
     </include>
 
 </launch>

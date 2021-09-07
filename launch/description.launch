@@ -4,7 +4,7 @@
    <arg name="front_kind" default="4wd"/> <!-- swing_axle | caster | 4wd -->
 
     <!--  Custom robot  -->
-    <param name="robot_description" command="$(find xacro)/xacro '$(find robot)/urdf/robot.xacro'
+    <param name="robot_description" command="$(find xacro)/xacro '$(find progetto_rana)/urdf/robot.xacro'
             front_kind:=$(arg front_kind) wheel_kind:=$(arg wheel_kind)" />
     <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
           args="-urdf -model robot -param robot_description"/>

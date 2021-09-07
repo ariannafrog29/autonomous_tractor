@@ -5,11 +5,11 @@
 
 <!--  CONTROLLER  -->
     <rosparam command="load"
-              file="$(find robot)/config/control/joints.yaml"
+              file="$(find progetto_rana)/config/control/joints.yaml"
               ns="joint_publisher"/>
               
     <rosparam command="load"
-              file="$(find robot)/config/control/heros_skid_steer.yaml"
+              file="$(find progetto_rana)/config/control/heros_skid_steer.yaml"
               ns="heros_velocity_controller"/>
 
     <node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false"

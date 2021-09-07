@@ -6,10 +6,10 @@
 
 
     <xacro:include filename="$(find innok_heros_description)/urdf/innok_heros_universal.xacro"/>
-    <xacro:include filename="$(find robot)/urdf/laser.xacro"/>
-    <xacro:include filename="$(find robot)/urdf/plow.xacro"/>
-    <xacro:include filename="$(find robot)/urdf/gps.xacro"/>
-    <xacro:include filename="$(find robot)/urdf/imu.xacro"/>
+    <xacro:include filename="$(find progetto_rana)/urdf/laser.xacro"/>
+    <xacro:include filename="$(find progetto_rana)/urdf/plow.xacro"/>
+    <xacro:include filename="$(find progetto_rana)/urdf/gps.xacro"/>
+    <xacro:include filename="$(find progetto_rana)/urdf/imu.xacro"/>
 
     <!-- heros base-->
     <xacro:innok_heros front_kind='$(arg front_kind)' wheel_kind='$(arg wheel_kind)'/>
